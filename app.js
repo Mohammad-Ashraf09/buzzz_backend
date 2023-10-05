@@ -12,11 +12,13 @@ const messageRoute = require("./router/Messages");
 const notificationRoute = require("./router/Notifications");
 // const multer = require("multer");
 const path = require("path");
+const { DATABASE } = require('./config/keys')
 // const MongoClient = require("mongodb").MongoClient;
 
 dotenv.config();
 
-mongoose.connect(process.env.DATABASE)
+// mongoose.connect(process.env.DATABASE)
+mongoose.connect(DATABASE)
 .then(()=>{
     console.log(`connected to database`);
 }).catch((err)=>{
