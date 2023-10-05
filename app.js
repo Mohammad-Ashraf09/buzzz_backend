@@ -10,12 +10,10 @@ const postRoute = require("./router/Posts");
 const conversationRoute = require("./router/Conversations");
 const messageRoute = require("./router/Messages");
 const notificationRoute = require("./router/Notifications");
-const multer = require("multer");
+// const multer = require("multer");
 const path = require("path");
 // const MongoClient = require("mongodb").MongoClient;
 
-
-const port = process.env.PORT || 8000;
 dotenv.config();
 
 mongoose.connect(process.env.DATABASE)
@@ -25,7 +23,7 @@ mongoose.connect(process.env.DATABASE)
     console.log(err)
 });
 
-app.use("/images", express.static(path.join(__dirname, "public/images")));
+// app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 //middleware
 app.use(express.json());
@@ -33,24 +31,24 @@ app.use(helmet());
 app.use(morgan("common"));
 
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb)=>{
-    cb(null, "public/images")
-  },
-  filename:(req, file, cb)=>{
-    cb(null, req.body.name);    // jo file name client side se aa raha hai usko ye pulic/images folder me save kr dega with same name
-  }
-})
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb)=>{
+//     cb(null, "public/images")
+//   },
+//   filename:(req, file, cb)=>{
+//     cb(null, req.body.name);    // jo file name client side se aa raha hai usko ye pulic/images folder me save kr dega with same name
+//   }
+// })
 
-const upload = multer({storage:storage});
-app.post("/api/upload", upload.single('file'), (req, res)=>{
-  try{
-    return res.status(200).json("File uploaded successfully...");
-  }
-  catch(err){
-    console.log(err);
-  }
-})
+// const upload = multer({storage:storage});
+// app.post("/api/upload", upload.single('file'), (req, res)=>{
+//   try{
+//     return res.status(200).json("File uploaded successfully...");
+//   }
+//   catch(err){
+//     console.log(err);
+//   }
+// })
 
 
 app.use("/api/auth", authRoute);
@@ -78,6 +76,6 @@ app.use("/api/notifications", notificationRoute);
 // })
 
 
-app.listen(port, () => {
+app.listen(8000, () => {
   console.log(`server is running at port 8000`);
 })

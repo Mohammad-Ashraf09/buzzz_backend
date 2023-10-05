@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mohammad-Ashraf09/project_1_buzzz.git"
+    "url": "git+https://github.com/Mohammad-Ashraf09/buzzz_backend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Mohammad-Ashraf09/project_1_buzzz/issues"
+    "url": "https://github.com/Mohammad-Ashraf09/buzzz_backend/issues"
   },
-  "homepage": "https://github.com/Mohammad-Ashraf09/project_1_buzzz#readme",
+  "homepage": "https://github.com/Mohammad-Ashraf09/buzzz_backend#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.0",
@@ -26,7 +26,6 @@
     "mongodb": "^4.5.0",
     "mongoose": "^6.2.10",
     "morgan": "^1.10.0",
-    "multer": "^1.4.4",
     "path": "^0.12.7"
   }
 }
