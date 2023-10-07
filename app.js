@@ -10,6 +10,7 @@ const postRoute = require("./router/Posts");
 const conversationRoute = require("./router/Conversations");
 const messageRoute = require("./router/Messages");
 const notificationRoute = require("./router/Notifications");
+var cors = require('cors');
 // const multer = require("multer");
 const path = require("path");
 const { DATABASE } = require('./config/keys')
@@ -28,6 +29,7 @@ mongoose.connect(DATABASE)
 // app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 //middleware
+app.use(cors());
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
